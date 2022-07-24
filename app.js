@@ -1,7 +1,8 @@
 const express = require('express')
+const restaurantList = require('./restaurant.json').results
+
 const app = express()
 const port = 3000
-const restaurantList = require('./restaurant.json').results
 
 // 載入 handlebars
 const exphbs = require('express-handlebars')
@@ -20,11 +21,14 @@ app.get('/restaurants/:id', (req, res) => {
 })
 
 app.get('/search', (req, res) => {
-  const keyword =  req.query.keyword
+  // 觀摩ModelAnswers trim()去除關鍵字前後空格
+  const keywords =  req.query.keywords
+  const keyword = keywords.trim().toLowerCase()
+
   const restaurant = restaurantList.filter((restaurant) => {
-    return restaurant.category.includes(keyword) || restaurant.name.includes(keyword)
+    return restaurant.category.includes(keyword) || restaurant.name.toLowerCase().includes(keyword)
   })
-  res.render('index', { restaurant: restaurant })
+  res.render('index', { restaurant: restaurant, keywords })
 })
 
 
