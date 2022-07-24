@@ -1,6 +1,6 @@
 # restaurant_list
 
-![Index page about Restaurant List](./public/image/restautant_list.png)
+![Index page about Restaurant List](./public/image/restaurant_list.png)
 
 ## 介紹
 
