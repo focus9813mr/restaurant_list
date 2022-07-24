@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/focus9813mr/restaurant_list#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0"
   }
 }
